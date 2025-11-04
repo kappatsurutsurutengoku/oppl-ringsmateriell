@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Del 3: Lag en dialog — Ren'Py Grunnleggende</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Del 3: Lag en dialog</h1>
+    <p class="subtitle">Kom i gang med Ren’Py — steg for steg</p>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h2>Trinn 1: Skriv dialog</h2>
+      <p>
+        Nå som du vet hvordan du putter inn bilder og hat definert katakteren din kan du starte å skrive historien din. <strong>forbokstaven til karakteren din</strong> <strong>"Dialogen din"</strong> (husk "")
+      </p>
+      <img src="images/img_32.png"/>
+    </section>
+
+    <section class="step">
+      <h2>Trinn 2: Ansiktsutrykk </h2>
+      <p>
+        Får å bytte ansiktsutrykk er det bare å bruke <strong>show</strong> bildet_ditt koden, men en viktig ting å huske er at du må <strong>hide</strong> forrigje_bildet_ditt. 
+        Dette er sånn at når spillet ditt har flere ansiktsutrykk, at det ikke blir flere lag av bilder oppå hverandre.
+      </p>
+      <img src="images/img_33.png"/>
+      <br>
+      <img src="images/img_28.png"/>
+      <img src="images/img_34.png"/>
+    </section>
+
+    <section class="step">
+      <h2>Trinn 3: Andre karakterer </h2>
+      <p>
+        Hvis du nå bruker det du har lært for å prøve å sette inn en ny karakter skjer dette: 
+      </p>
+      <img src="images/img_35.png"/>
+      <img src="images/img_36.png"/>
+      <p>
+        For å fikse dette trenger du denne koden under define karakter kodene: 
+      </p>
+      <img src="images/img_37.png"/>
+      <p>
+        Som du sikkert skjønner er <strong>center</strong> midten, <strong>midright</strong> høyre og <strong>midleft</strong> venstre.
+        For å faktisk bruke dette på du putte det etter bildene dine.
+      </p>
+      <img src="images/img_39.png"/>
+      <p>
+        Med bare det bør bildene dine se sånn ut:
+      </p>
+      <img src="images/img_38.png"/>
+    </section>
+
+    <section class="step">
+      <h2>Trinn 4: Fin pussing </h2>
+      <p>
+        En fin ting å putte in for finere transosjoner mellom bildene er <strong>dissolve</strong> og <strong>move</strong>. 
+        <strong>Dissolve</strong> lar bildene fade inn, noe som er fint å ha spesielt når karakteren din bytter ansiktsuttrykk, 
+        og <strong>move</strong> er fint å bruke når karakteren din beveger deg, hær er et eksempel på hvordan det kan bli brukt.
+      </p>
+      <img src="images/img_40.png"/>
+    </section>
+
+
+    <section class="quiz">
+      <h2>💡 Mini-quiz: Hva husker du?</h2>
+
+      <div class="quiz-question" data-correct="a">
+        <p>1. Hvordan skriver du dialog?</p>
+        <div class="quiz-options">
+          <label><input type="radio" name="q1" value="a"> "Dialog"</label>
+          <label><input type="radio" name="q1" value="b"> *Dialog*</label>
+          <label><input type="radio" name="q1" value="c"> 'Dialog'</label>
+        </div>
+      </div>
+
+      <div class="quiz-question" data-correct="b">
+        <p>2. Hva er viktig å huske når du har mer enn 1 karakter på skjermen?</p>
+        <div class="quiz-options">
+          <label><input type="radio" name="q2" value="a"> At du har mellomrom mellom bildene inne i koden</label>
+          <label><input type="radio" name="q2" value="b"> center, midleft og midright</label>
+          <label><input type="radio" name="q2" value="c"> At du skriver navnet til katakteren du vil ha på venstre side først, så den andre</label>
+        </div>
+      </div>
+
+      <div class="quiz-question" data-correct="c">
+        <p>3. Hva gjør dissolve?</p>
+        <div class="quiz-options">
+          <label><input type="radio" name="q3" value="a"> Gir bildet en blur effekt</label>
+          <label><input type="radio" name="q3" value="b"> Sletter bildet</label>
+          <label><input type="radio" name="q3" value="c"> Gir en fade effekt</label>
+        </div>
+      </div>
+
+      <button id="checkAnswers">Sjekk svar</button>
+      <button id="retryQuiz" class="retry-btn" style="display:none;">Prøv igjen</button>
+
+      <div id="quizResult" class="quiz-result"></div>
+    </section>
+  </main>
+
+  <section class="cta">
+      <p>Flott! Nå er Ren’Py installert og spillet ditt er klart til bruk.</p>
+      <a href="side_2.html" class="button">← Forrige del</a>
+      <a href="side_4.html" class="button">Neste del →</a>  
+      <br>
+      <br>    
+      <a href="index.html" class="button">Tilbake til forsiden</a>
+    </section>
+
+  <footer>
+    <p>Del 2 av serien: Ren’Py Grunnleggende</p>
+  </footer>
+
+  <script>
+    const checkBtn = document.getElementById('checkAnswers');
+    const retryBtn = document.getElementById('retryQuiz');
+    const resultDiv = document.getElementById('quizResult');
+    const questions = document.querySelectorAll('.quiz-question');
+
+    checkBtn.addEventListener('click', () => {
+      let correctCount = 0;
+
+      questions.forEach(q => {
+        const correct = q.dataset.correct;
+        const options = q.querySelectorAll('label');
+        options.forEach(label => {
+          const input = label.querySelector('input');
+          label.classList.remove('correct', 'wrong');
+
+          if (input.checked) {
+            if (input.value === correct) {
+              label.classList.add('correct');
+              correctCount++;
+            } else {
+              label.classList.add('wrong');
+            }
+          }
+          input.disabled = true;
+        });
+      });
+
+      resultDiv.textContent = `Du fikk ${correctCount} av ${questions.length} riktige 🎯`;
+      checkBtn.style.display = 'none';
+      retryBtn.style.display = 'inline-block';
+    });
+
+    retryBtn.addEventListener('click', () => {
+      questions.forEach(q => {
+        const options = q.querySelectorAll('label');
+        options.forEach(label => {
+          const input = label.querySelector('input');
+          label.classList.remove('correct', 'wrong');
+          input.checked = false;
+          input.disabled = false;
+        });
+      });
+      resultDiv.textContent = '';
+      retryBtn.style.display = 'none';
+      checkBtn.style.display = 'inline-block';
+    });
+  </script>
+</body>
+</html>
+

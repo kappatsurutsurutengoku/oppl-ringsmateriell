@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Del 2: Bli kjent med koding og prøv selv — Ren'Py Grunnleggende</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Del 2: Bli kjent med koning og prøv selv</h1>
+    <p class="subtitle">Kom i gang med Ren’Py — steg for steg</p>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h2>Trinn 1: Bli kjent med hvordan dette funker</h2>
+      <p>
+        Hvis du trykker på <strong>«Launch Project»</strong> vil spillet starte, med fargetemaet du valgte istad.
+      </p>
+      <img src="images/img_9.png" />
+      <img src="images/img_10.png" />
+      <p>
+        Hvis du nå trykker på <strong>«Start»</strong> burde dette komme opp.
+      </p>
+      <img src="images/img_11.png" />
+    </section>
+
+    <section class="step">
+      <h2>Trinn 2: Bli kjent med kodingen</h2>
+      <p>
+        Hvis du nå går tilbake til startsiden av Ren’Py Launcher og trykker på <strong>«Open Project»</strong> (tekst i oransj), skal du få opp koden som ligger i <strong>«script.py»</strong>.
+      </p>
+      <img src="images/img_8.png" />
+      <p>
+        Hvis du ser nærmere på koden, kan du se dialogen du nettopp leste da du åpnet spillet.
+      </p>
+      <img src="images/img_12.png" />
+    </section>
+
+    <section class="step">
+      <h2>Trinn 3: Mappestruktur</h2>
+      <p>
+        Først og fremst er det viktig at du har en ryddig og strukturert mappe. Klikk på <strong>«Images»</strong>.
+      </p>
+      <img src="images/img_54.png" />
+      <p>
+        Inne dær lager du 2 mapper <strong>«Characters»</strong> og <strong>«Backgrounds»</strong>. Når du begynner å lage større spill med flere elementer er det lurt å dele dem opp i mapper for å finne frem raskere.
+      </p>
+      <img src="images/img_14.png" />
+      <img src="images/img_15.png" />
+      <p>
+        Får nå trenger du bare 2 bilder av samme karakter med 2 forskjellige ansiktsutrykk inna på <strong>«Images»</strong>. Når du gir disse bildene navn er det lurt å kalle dem en forkortet versjonen av navnet til karakteren og ansiktsutrykket de lager i bildet. 
+        <br> Inne på <strong>«Backgrounds»</strong> kan du og putte bilde du vil ha som bakgrunn.
+      </p>
+      <img src="images/img_16.png" />
+      <img src="images/img_19.png" />
+    </section>
+
+    <section class="step">
+      <h2>Trinn 4: Start å kode dialogen din</h2>
+      <p>
+        Nå som du har bildene dine klar kan du gå tilbake til <strong>«script.rpy»</strong> og begynne å kode. På toppen ser du at det står <strong>define e = Character("Eileen")</strong> og under, før hvær dialog hun sier står det <strong>e</strong>.
+      </p>
+      <img src="images/img_17.png" />
+      <p>
+        Vi kan starte med å bytte det ut med forbokstaven til karakteren din og navnet demmers. Hvis du har flere karakterer du vil inklDet gjør det sånn at du bare trenger å skrive forbokstaven til karakteren som snakker. Når spillet ditt blir lengre og du må skrive mer dialog kommer dette til å bli veldig nyttig.
+      </p>
+      <img src="images/img_20.png" />
+      <p>
+        Det gjør det sånn at du bare trenger å skrive forbokstaven til karakteren som snakker. Når spillet ditt blir lengre og du må skrive mer dialog kommer dette til å bli veldig nyttig.
+      </p>
+      <img src="images/img_21.png" />
+      <p>
+        (Dette er hvordan koden ser ut nå)
+      </p>
+      <img src="images/img_22.png" />
+    </section>
+
+    <section class="step">
+      <h2>Trinn 5: Bytt det ut med ditt eget bilde</h2>
+      <p>
+        Vi kan først begynne med å putte inn bakgrunnen din. Alt du trenger er <strong>scene</strong> bildet_ditt.
+      </p>
+      <img src="images/img_24.png" />
+      <img src="images/img_25.png" />
+      <p>
+        Prøv først å skrive inn koden <strong>show</strong> bildet_ditt.
+      </p>
+      <img src="images/img_26.png" />
+      <p>
+        Da kan det hende at bildet ditt kommer opp slikt:
+      </p>
+      <img src="images/img_27.png" />
+      <p>
+        Hvis det ser greit ut kan du hoppe over resten og dra til neste del.
+    </section>
+
+    <section class="step">
+      <h2>Trinn 6: Justere størrelse </h2>
+      <p>
+        Under <strong>define e = Character("Eileen")</strong> (eller det du byttet det ut med) skriver du inn denne koden.
+      </p>
+      <img src="images/img_31.png" />
+      <p>
+        Så går du ned til <strong>show</strong> bildet_ditt og skriver <strong>at center</strong> etter det.
+      </p>
+      <img src="images/img_32.png" />
+      <p>
+        Da ble bildet mitt fikset. Hvis det fortsatt er for stort, høys eller lavt justerer du størrelse ved å bytte nummeret på <strong>zoom</strong> og høyde på <strong>yalign</strong>.
+      </p>
+      <img src="images/img_28.png" />
+    </section>
+
+    <section class="quiz">
+      <h2>💡 Mini-quiz: Hva husker du?</h2>
+
+      <div class="quiz-question" data-correct="b">
+        <p>1. Hva heter filen der dialogen ligger i standardprosjektet?</p>
+        <div class="quiz-options">
+          <label><input type="radio" name="q1" value="a"> main.rpy</label>
+          <label><input type="radio" name="q1" value="b"> script.rpy</label>
+          <label><input type="radio" name="q1" value="c"> story.rpy</label>
+        </div>
+      </div>
+
+      <div class="quiz-question" data-correct="c">
+        <p>2. Hvordan skal mappene dine se ut?</p>
+        <div class="quiz-options">
+          <label><input type="radio" name="q2" value="a"> game/images/bildet_ditt</label>
+          <label><input type="radio" name="q2" value="b"> spill_navn/game/bildet_ditt</label>
+          <label><input type="radio" name="q2" value="c"> spill_navn/game/character/bildet_ditt</label>
+        </div>
+      </div>
+
+      <div class="quiz-question" data-correct="a">
+        <p>3. Hva er grunnen for koden <strong>define e = Character("Eileen")</strong>?</p>
+        <div class="quiz-options">
+          <label><input type="radio" name="q3" value="a"> Enkere å definere karakterer</label>
+          <label><input type="radio" name="q3" value="b"> Sette in bilder</label>
+          <label><input type="radio" name="q3" value="c"> Notater for å huske karakterene dine</label>
+        </div>
+      </div>
+
+      <button id="checkAnswers">Sjekk svar</button>
+      <button id="retryQuiz" class="retry-btn" style="display:none;">Prøv igjen</button>
+
+      <div id="quizResult" class="quiz-result"></div>
+    </section>
+  </main>
+
+  <section class="cta">
+      <p>Flott! Nå er Ren’Py installert og spillet ditt er klart til bruk.</p>
+      <a href="side_1.html" class="button">← Forrige del</a>
+      <a href="side_3.html" class="button">Neste del →</a>  
+      <br>
+      <br>    
+      <a href="index.html" class="button">Tilbake til forsiden</a>
+    </section>
+
+  <footer>
+    <p>Del 2 av serien: Ren’Py Grunnleggende</p>
+  </footer>
+
+  <script>
+    const checkBtn = document.getElementById('checkAnswers');
+    const retryBtn = document.getElementById('retryQuiz');
+    const resultDiv = document.getElementById('quizResult');
+    const questions = document.querySelectorAll('.quiz-question');
+
+    checkBtn.addEventListener('click', () => {
+      let correctCount = 0;
+
+      questions.forEach(q => {
+        const correct = q.dataset.correct;
+        const options = q.querySelectorAll('label');
+        options.forEach(label => {
+          const input = label.querySelector('input');
+          label.classList.remove('correct', 'wrong');
+
+          if (input.checked) {
+            if (input.value === correct) {
+              label.classList.add('correct');
+              correctCount++;
+            } else {
+              label.classList.add('wrong');
+            }
+          }
+          input.disabled = true;
+        });
+      });
+
+      resultDiv.textContent = `Du fikk ${correctCount} av ${questions.length} riktige 🎯`;
+      checkBtn.style.display = 'none';
+      retryBtn.style.display = 'inline-block';
+    });
+
+    retryBtn.addEventListener('click', () => {
+      questions.forEach(q => {
+        const options = q.querySelectorAll('label');
+        options.forEach(label => {
+          const input = label.querySelector('input');
+          label.classList.remove('correct', 'wrong');
+          input.checked = false;
+          input.disabled = false;
+        });
+      });
+      resultDiv.textContent = '';
+      retryBtn.style.display = 'none';
+      checkBtn.style.display = 'inline-block';
+    });
+  </script>
+</body>
+</html>

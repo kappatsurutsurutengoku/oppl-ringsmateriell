@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Del 5: Valg — Ren'Py Grunnleggende</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Del 5: valg</h1>
+    <p class="subtitle">Kom i gang med Ren’Py — steg for steg</p>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h2>Trinn 1: Valg i spillet ditt</h2>
+      <p>
+        Du starter først med <strong>label choice:</strong> og skriver spørsmalet + hvem som spørr det.
+      </p>
+      <img src="images/img_47.png"/>
+      <p>
+        Så <strong>menu:</strong> og 2 eller flere valg.
+      </p>
+      <img src="images/img_48.png"/>
+      <p>
+        Og etter hvert alternativ må du putte <strong>jump choice_1a</strong>, b, c avhengig av hvor mange valg du lagde.
+      </p>
+      <img src="images/img_51.png"/>
+    </section>
+
+    <section class="step">
+      <h2>Trinn 2: Svar </h2>
+      <p>
+        Nå velger du <strong>label choice_1a (1b, 1c osv.)</strong> og lager forskjellige senarioer basert på det spilleren valgte.
+      </p>
+      <img src="images/img_52.png"/>
+      <p>
+        full code for valg:
+      </p>
+      <img src="images/img_53.png"/>
+    </section>
+
+    <section class="step">
+      <p>
+        Sånn skal det se ut til slutt:
+      </p>
+      <img src="images/img_49.png"/>
+      <img src="images/img_50.png"/>
+    </section>
+    
+    <!-- QUIZ -->
+    <section class="quiz">
+      <h2>💡 Mini-quiz: Hva husker du?</h2>
+
+      <div class="quiz-question" data-correct="a">
+        <p>1. Hva er viktig når du vil lage valg alternativ?</p>
+        <div class="quiz-options">
+          <label><input type="radio" name="q1" value="a"> label choice:</label>
+          <label><input type="radio" name="q1" value="b"> choice start:</label>
+          <label><input type="radio" name="q1" value="c"> choose one:</label>
+        </div>
+      </div>
+
+      <div class="quiz-question" data-correct="b">
+        <p>2. Hva er viktig å huske etter hvert alternativ?</p>
+        <div class="quiz-options">
+          <label><input type="radio" name="q2" value="a"> ingenting</label>
+          <label><input type="radio" name="q2" value="b"> jump choice...</label>
+          <label><input type="radio" name="q2" value="c"> "svaret til katakteren"</label>
+        </div>
+      </div>
+
+      <button id="checkAnswers">Sjekk svar</button>
+      <button id="retryQuiz" class="retry-btn" style="display:none;">Prøv igjen</button>
+
+      <div id="quizResult" class="quiz-result"></div>
+    </section>
+  </main>
+
+  <section class="cta">
+      <p>Flott! Nå er Ren’Py installert og spillet ditt er klart til bruk.</p>
+      <a href="side_4.html" class="button">← Forrige del</a>
+      <a href="index.html" class="button">Tilbake til forsiden</a>
+    </section>
+
+  <footer>
+    <p>Del 2 av serien: Ren’Py Grunnleggende</p>
+  </footer>
+
+  <script>
+    const checkBtn = document.getElementById('checkAnswers');
+    const retryBtn = document.getElementById('retryQuiz');
+    const resultDiv = document.getElementById('quizResult');
+    const questions = document.querySelectorAll('.quiz-question');
+
+    checkBtn.addEventListener('click', () => {
+      let correctCount = 0;
+
+      questions.forEach(q => {
+        const correct = q.dataset.correct;
+        const options = q.querySelectorAll('label');
+        options.forEach(label => {
+          const input = label.querySelector('input');
+          label.classList.remove('correct', 'wrong');
+
+          if (input.checked) {
+            if (input.value === correct) {
+              label.classList.add('correct');
+              correctCount++;
+            } else {
+              label.classList.add('wrong');
+            }
+          }
+          input.disabled = true;
+        });
+      });
+
+      resultDiv.textContent = `Du fikk ${correctCount} av ${questions.length} riktige 🎯`;
+      checkBtn.style.display = 'none';
+      retryBtn.style.display = 'inline-block';
+    });
+
+    retryBtn.addEventListener('click', () => {
+      questions.forEach(q => {
+        const options = q.querySelectorAll('label');
+        options.forEach(label => {
+          const input = label.querySelector('input');
+          label.classList.remove('correct', 'wrong');
+          input.checked = false;
+          input.disabled = false;
+        });
+      });
+      resultDiv.textContent = '';
+      retryBtn.style.display = 'none';
+      checkBtn.style.display = 'inline-block';
+    });
+  </script>
+</body>
+</html>
